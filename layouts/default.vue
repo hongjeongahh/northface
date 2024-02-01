@@ -1,15 +1,9 @@
 <template>
-    <div>
-        <Header />
-        <slot />
-        <Footer />
-    </div>
+  <Header />
+  <slot />
+  <Footer />
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

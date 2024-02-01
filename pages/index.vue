@@ -1,13 +1,7 @@
 <template>
-    <div>
-        i am index.vue
-    </div>
+  <div>콘텐츠영역</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
