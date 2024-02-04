@@ -401,7 +401,7 @@ header {
   right: 0;
   z-index: 20;
   width: 80%;
-  min-height: 100%;
+  height: 100%;
   background: #ffffff;
   overflow-y: auto;
   &.slide-left-enter-active,
