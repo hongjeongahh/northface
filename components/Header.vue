@@ -51,12 +51,12 @@
             </div>
             <div class="layer-con banner">
               <a href="javascript:void(0);">
-                <img src="/assets/images/common/img_banner01.jpg" alt="" />
+                <img src="/assets/images/common/img-banner01.jpg" alt="" />
               </a>
             </div>
             <div class="layer-con banner">
               <a href="javascript:void(0);">
-                <img src="/assets/images/common/img_banner02.jpg" alt="" />
+                <img src="/assets/images/common/img-banner02.jpg" alt="" />
               </a>
             </div>
             <button
@@ -81,12 +81,14 @@
         <transition name="slide-left">
           <div class="menu-layer" v-if="isPopupVisible.menu">
             <div class="sign-area">
-              <a href="javascript:void(0);">로그인</a>
-              <a href="javascript:void(0);">회원가입</a>
+              <a href="javascript:void(0);" class="login">로그인</a>
+              <a href="javascript:void(0);" class="signin">회원가입</a>
             </div>
             <ul class="menu-list">
-              <li @click="toggleActive">
-                남성
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  남성
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -97,8 +99,10 @@
                   <a href="javascript:void(0);">윈터스포츠</a>
                 </div>
               </li>
-              <li @click="toggleActive">
-                여성
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  여성
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -109,8 +113,10 @@
                   <a href="javascript:void(0);">윈터스포츠</a>
                 </div>
               </li>
-              <li @click="toggleActive">
-                아동
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  아동
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -121,8 +127,10 @@
                   <a href="javascript:void(0);">윈터스포츠</a>
                 </div>
               </li>
-              <li @click="toggleActive">
-                화이트라벨
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  화이트라벨
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -133,8 +141,10 @@
                   <a href="javascript:void(0);">윈터스포츠</a>
                 </div>
               </li>
-              <li @click="toggleActive">
-                가방&용품
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  가방&용품
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -144,8 +154,10 @@
                   <a href="javascript:void(0);">아동</a>
                 </div>
               </li>
-              <li @click="toggleActive">
-                신발
+              <li>
+                <button type="button" class="depth1" @click="toggleActive">
+                  신발
+                </button>
                 <div class="depth2">
                   <a href="javascript:void(0);">홈</a>
                   <a href="javascript:void(0);">전체보기</a>
@@ -156,7 +168,7 @@
                 </div>
               </li>
               <li>
-                <a href="javascript:void(0);">랭킹</a>
+                <a href="javascript:void(0);" class="depth1 only">랭킹</a>
               </li>
             </ul>
             <ul class="banner-menu-list">
@@ -187,16 +199,16 @@
             </ul>
             <ul class="account-link">
               <li>
-                <a href="javascript:void(0);">주문배송</a>
+                <a href="javascript:void(0);" class="order">주문배송</a>
               </li>
               <li>
-                <a href="javascript:void(0);">공지사항</a>
+                <a href="javascript:void(0);" class="notice">공지사항</a>
               </li>
               <li>
-                <a href="javascript:void(0);">고객센터</a>
+                <a href="javascript:void(0);" class="cs">고객센터</a>
               </li>
               <li>
-                <a href="javascript:void(0);">매장찾기</a>
+                <a href="javascript:void(0);" class="store">매장찾기</a>
               </li>
             </ul>
             <button
@@ -232,13 +244,13 @@ const togglePopup = (popup) => {
 };
 
 function toggleActive(e) {
-  const menu = document.querySelectorAll(".menu-list li");
-  menu.forEach((item) => {
-    item.classList.remove("active");
-  });
+  const menu = document.querySelectorAll(".menu-list :not(.only).depth1");
   if (e.target.classList.contains("active")) {
     e.target.classList.remove("active");
   } else {
+    menu.forEach((item) => {
+      item.classList.remove("active");
+    });
     e.target.classList.add("active");
   }
 }
@@ -249,7 +261,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 32rem;
+  // min-width: 32rem;
+  width: 100%;
   height: 6.2rem;
   padding: 0 1.6rem;
   .logo {
@@ -276,12 +289,17 @@ header {
       position: fixed;
       left: 0;
       top: 0;
-      z-index: 10;
+      z-index: 15;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
       &.active {
         display: block;
+      }
+    }
+    .menu-wrap {
+      .dimmed {
+        z-index: 16;
       }
     }
   }
@@ -419,34 +437,47 @@ header {
     right: -100%;
   }
   .sign-area {
+    display: flex;
+    gap: 3rem;
     padding: 2rem 1.6rem 1rem;
+    a {
+      display: block;
+      position: relative;
+      padding: 0 0 0 2rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.7rem;
+        height: 1.7rem;
+        background: rgba(255, 0, 0, 0.3);
+      }
+    }
   }
   .menu-list {
     li {
-      border-bottom: 1px solid #e5e5e5;
-      // a {
-      // display: block;
-      position: relative;
-      padding: 1.6rem 4.4rem 1.6rem 1.6rem;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #141414;
-      line-height: 2.2rem;
-      // }
-      .depth2 {
-        display: none;
-        border-top: 1px solid #e5e5e5;
-        a {
-          display: block;
-        }
-      }
-      &:has(.depth2) {
+      .depth1 {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+        padding: 1.6rem 4.4rem 1.6rem 1.6rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: left;
+        color: #141414;
+        line-height: 2.1rem;
         &::before {
           content: "";
           display: block;
           position: absolute;
           right: 1.6rem;
-          top: 2.5rem;
+          top: 50%;
           width: 1.2rem;
           height: 0.1rem;
           background: #141414;
@@ -456,15 +487,34 @@ header {
           display: block;
           position: absolute;
           right: 1.6rem;
-          top: 2.5rem;
+          top: 50%;
           width: 1.2rem;
           height: 0.1rem;
           background: #141414;
           transform: rotate(90deg);
         }
+        &.only {
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
       }
-      &.active {
-        .depth2 {
+      .depth2 {
+        display: none;
+        border-top: 1px solid #e5e5e5;
+        a {
+          display: block;
+          padding: 0 1.6rem;
+          font-size: 1.3rem;
+          line-height: 3.8rem;
+          border-bottom: 1px solid #e5e5e5;
+        }
+      }
+
+      .active {
+        border-bottom: none;
+        + .depth2 {
           display: block;
         }
         &::after {
@@ -489,14 +539,28 @@ header {
   .account-link {
     display: flex;
     justify-content: space-between;
+    margin: 1.4rem 0 0;
     padding: 0 1.6rem 1.6rem;
+    a {
+      display: block;
+      font-size: 1.1rem;
+      &::before {
+        content: "";
+        display: block;
+        margin: 0 auto 1.8rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        background: rgba(255, 0, 0, 0.3);
+      }
+    }
   }
   .btn-close {
+    padding: 0.6rem;
     position: absolute;
-    right: 1.6rem;
-    top: 1.8rem;
-    width: 2rem;
-    height: 2rem;
+    right: 0.3rem;
+    top: 1.5rem;
+    width: 3.7rem;
+    height: 3.7rem;
     &::before {
       content: "";
       display: block;
@@ -504,7 +568,7 @@ header {
       left: 50%;
       top: 50%;
       width: 0.1rem;
-      height: 1.3rem;
+      height: 1.6rem;
       background: #000000;
       transform: translate(-50%, -50%) rotate(45deg);
     }
@@ -515,7 +579,7 @@ header {
       left: 50%;
       top: 50%;
       width: 0.1rem;
-      height: 1.3rem;
+      height: 1.6rem;
       background: #000000;
       transform: translate(-50%, -50%) rotate(-45deg);
     }

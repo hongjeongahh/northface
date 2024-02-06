@@ -64,7 +64,7 @@
     <div class="area3">
       <strong class="company-name">㈜영원아웃도어</strong>
       <div class="company-info1">
-        <div>
+        <div class="box">
           <span>대표이사 성기학</span>
           <span>[개인정보 보호책임자] 최윤정 상무</span>
           <span>사업자등록번호 110-81-27101</span>
@@ -141,7 +141,7 @@ function accordionToggle(e) {
 
 <style lang="scss" scoped>
 footer {
-  min-width: 32rem;
+  // min-width: 32rem;
   width: 100%;
   .area2 {
     padding: 1.5rem;
@@ -160,6 +160,11 @@ footer {
       }
       &-info1 {
         margin: 1.4rem 0 0;
+        .box {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
         span {
           margin: 0 0 0 1rem;
         }
@@ -257,7 +262,7 @@ footer {
   display: flex;
   justify-content: space-between;
   margin: 1.5rem auto 0;
-  width: 26rem;
+  max-width: 26rem;
   .sns {
     width: 2.7rem;
     height: 2.7rem;

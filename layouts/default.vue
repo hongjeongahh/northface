@@ -1,7 +1,12 @@
 <template>
-  <Header />
-  <slot />
-  <Footer />
+  <div id="wrap">
+    <HeaderBanner />
+    <Header />
+    <TabMenu />
+    <slot />
+    <Footer />
+    <Appbar />
+  </div>
 </template>
 
 <script setup></script>
