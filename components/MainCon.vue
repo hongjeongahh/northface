@@ -1,10 +1,12 @@
 <template>
   <div class="img-product">
-    <img :src="src" alt="" />
-    <div class="box">
-      <strong>{{ title }}</strong>
-      <p>{{ text }}</p>
-    </div>
+    <a href="javascript:void(0);">
+      <img :src="src" alt="" />
+      <div class="item" v-if="(title, text)">
+        <strong class="item-tit">{{ title }}</strong>
+        <p class="item-txt">{{ text }}</p>
+      </div>
+    </a>
   </div>
 </template>
 
@@ -14,8 +16,25 @@ const props = defineProps(["src", "title", "text"]);
 
 <style lang="scss" scoped>
 .img-product {
+  a {
+    display: block;
+  }
   img {
     width: 100%;
+  }
+  .item {
+    padding: 2rem 2rem 0;
+  }
+  .item-tit {
+    display: block;
+    font-size: 3rem;
+    line-height: 1.1;
+    white-space: pre-line;
+  }
+  .item-txt {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin: 1rem 0 0;
   }
 }
 </style>
