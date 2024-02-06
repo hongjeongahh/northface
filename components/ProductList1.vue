@@ -6,19 +6,21 @@
     class="slide-product-list"
   >
     <SwiperSlide v-for="(product, index) in products" :key="index">
-      <img
-        :src="`/assets/images/product1/img-product-list${index + 1}.jpg`"
-        alt=""
-      />
-      <div class="pd-info">
-        <strong class="name">{{ product.name }}</strong>
-        <p class="price">
-          <span v-if="product.discount" class="discount">{{
-            product.discount
-          }}</span>
-          <span class="sale">{{ product.price }} 원</span>
-        </p>
-      </div>
+      <a href="javascript:void(0);">
+        <img
+          :src="`/assets/images/product1/img-product-list${index + 1}.jpg`"
+          alt=""
+        />
+        <div class="pd-info">
+          <strong class="name">{{ product.name }}</strong>
+          <p class="price">
+            <span v-if="product.discount" class="discount">{{
+              product.discount
+            }}</span>
+            <span class="sale">{{ product.price }} 원</span>
+          </p>
+        </div>
+      </a>
     </SwiperSlide>
   </Swiper>
 </template>
@@ -53,6 +55,9 @@ const products = [
   margin: 2rem 0 0;
   padding: 0 0 0 2rem;
   .swiper-slide {
+    a {
+      display: block;
+    }
     img {
       width: 100%;
     }

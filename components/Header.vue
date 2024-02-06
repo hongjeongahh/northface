@@ -254,6 +254,10 @@ function toggleActive(e) {
     e.target.classList.add("active");
   }
 }
+
+function stickyHeader() {
+  const header = document.querySelector("header");
+}
 </script>
 
 <style lang="scss" scoped>

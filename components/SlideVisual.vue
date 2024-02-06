@@ -40,14 +40,6 @@
 </template>
 
 <script setup>
-// var visualSwiper = new Swiper(".visual-slide");
-// var pagingSwiper = new Swiper(".visual-slide", {
-//   pagination: {
-//     el: ".swiper-pagination-fraction",
-//     type: "fraction",
-//   },
-// });
-// visualSwiper.controller.control = pagingSwiper;
 </script>
 
 <style lang="scss">

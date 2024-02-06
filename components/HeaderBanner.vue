@@ -15,13 +15,18 @@
         <p>멤버십 쿠폰팩</p>
       </SwiperSlide>
     </Swiper>
-    <button type="button" class="btn-close">
+    <button type="button" class="btn-close" @click="closeBanner">
       <span class="hide">배너 닫기</span>
     </button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+function closeBanner() {
+  const banner = document.querySelector(".banner-wrap");
+  banner.remove();
+}
+</script>
 
 <style lang="scss" scoped>
 .swiper-slide-prev,
