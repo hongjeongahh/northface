@@ -6,7 +6,7 @@
     <div class="layer-area">
       <div class="search-wrap">
         <button type="button" class="btn-search" @click="togglePopup('search')">
-          <span class="hide">검색 레이어 열기</span>
+          검색<span class="hide">레이어 열기</span>
         </button>
         <transition name="slide-down">
           <div class="search-layer" v-if="isPopupVisible.search">
@@ -76,7 +76,7 @@
       </div>
       <div class="menu-wrap">
         <button type="button" class="btn-menu" @click="togglePopup('menu')">
-          <span class="hide">전체메뉴 레이어 열기</span>
+          메뉴<span class="hide">레이어 열기</span>
         </button>
         <transition name="slide-left">
           <div class="menu-layer" v-if="isPopupVisible.menu">
@@ -233,7 +233,6 @@
 <script setup>
 import { ref } from "vue";
 
-// const dimmed = ref(null);
 const isPopupVisible = ref({
   search: false,
   menu: false,
@@ -254,10 +253,6 @@ function toggleActive(e) {
     e.target.classList.add("active");
   }
 }
-
-function stickyHeader() {
-  const header = document.querySelector("header");
-}
 </script>
 
 <style lang="scss" scoped>
@@ -265,10 +260,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // min-width: 32rem;
+  padding: 0 1.6rem;
   width: 100%;
   height: 6.2rem;
-  padding: 0 1.6rem;
+  background: #ffffff;
+  transition: top 0.3s;
   .logo {
     width: 7rem;
     height: 3.3rem;
@@ -283,6 +279,7 @@ header {
     display: flex;
     .btn-search,
     .btn-menu {
+      font-size: 1rem;
       width: 3.2rem;
       height: 3.2rem;
       background: rgba(255, 0, 0, 0.3);
@@ -293,7 +290,7 @@ header {
       position: fixed;
       left: 0;
       top: 0;
-      z-index: 15;
+      z-index: 10;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
@@ -303,7 +300,7 @@ header {
     }
     .menu-wrap {
       .dimmed {
-        z-index: 16;
+        z-index: 25;
       }
     }
   }
@@ -421,7 +418,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 20;
+  z-index: 30;
   width: 80%;
   height: 100%;
   background: #ffffff;

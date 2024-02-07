@@ -24,12 +24,9 @@
 
 <style lang="scss" scoped>
 .tab-menu {
-  position: sticky;
-  // left: 0;
-  top: 0;
-  z-index: 10;
   width: 100%;
   background: #ffffff;
+  // transition: top 0.1s;
   ul {
     display: flex;
     justify-content: space-between;

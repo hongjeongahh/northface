@@ -24,7 +24,9 @@
 <script setup>
 function closeBanner() {
   const banner = document.querySelector(".banner-wrap");
+  const mainArea = document.querySelector("main");
   banner.remove();
+  mainArea.style.marginTop = 108 + "px";
 }
 </script>
 
@@ -32,10 +34,6 @@ function closeBanner() {
 .swiper-slide-prev,
 .swiper-slide-next {
   opacity: 0 !important;
-}
-.banner-wrap {
-  width: 100%;
-  background: #000;
 }
 .swiper-slide {
   height: 4rem;
@@ -48,7 +46,14 @@ function closeBanner() {
   }
 }
 .banner-wrap {
+  // position: fixed;
   position: relative;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  background: #000;
+  // transition: top 0.3s;
   .btn-close {
     position: absolute;
     right: 1rem;
